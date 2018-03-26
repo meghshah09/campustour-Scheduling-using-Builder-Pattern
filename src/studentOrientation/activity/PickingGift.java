@@ -1,9 +1,11 @@
 package studentOrientation.activity;
 
-/**
- * @author Shashwat Maru
- * This interface will provide a skeleton for picking a gift.
- */
-public interface PickingGift {
+import studentOrientation.enums.GiftEnum;
+
+public class PickingGift implements PickingGiftI {
+
+	public PickingGift(GiftEnum giftIn) {
+		// TODO Auto-generated constructor stub
+	}
 
 }

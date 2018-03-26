@@ -1,10 +1,11 @@
 package studentOrientation.activity;
 
-/**
- * @author Shashwat Maru
- * This interface provides skeleton for student attending lectures
- * for orientation activity.
- */
-public interface LectureForOrientation {
+import studentOrientation.enums.LectureEnum;
 
+public class LectureForOrientation implements LectureForOrientationI {
+
+	public LectureForOrientation(LectureEnum lectureForOrientationIn) {
+		// TODO Auto-generated constructor stub
+	}
+	
 }

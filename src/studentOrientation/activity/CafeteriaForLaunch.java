@@ -1,9 +1,11 @@
 package studentOrientation.activity;
 
-/**
- * @author Megh Shah & Shashwat Maru
- * This interface will provide skeleton for student launch at cafeteria
- */
-public interface CafeteriaForLaunch {
+import studentOrientation.enums.CafeteriaEnum;
+
+public class CafeteriaForLaunch implements CafeteriaForLaunchI {
+
+	public CafeteriaForLaunch(CafeteriaEnum cafeteriaIn) {
+		// TODO Auto-generated constructor stub
+	}
 
 }

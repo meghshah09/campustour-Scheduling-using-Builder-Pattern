@@ -1,9 +1,11 @@
 package studentOrientation.activity;
 
-/**
- * @author Megh Shah & Shashwat Maru
- *This interface will be use to provide an interface for different school buildings. 
- */
-public interface VisitingSchoolBuilding {
-	
+import studentOrientation.enums.SchoolBuildingEnum;
+
+public class VisitingSchoolBuilding implements VisitingSchoolBuildingI {
+
+	public VisitingSchoolBuilding(SchoolBuildingEnum visitingSchoolBuilding1In) {
+		// TODO Auto-generated constructor stub
+	}
+
 }
