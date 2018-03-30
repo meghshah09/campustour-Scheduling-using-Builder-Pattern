@@ -1,5 +1,5 @@
 package studentOrientation.activityEfforts;
 
 public interface CarboonFootPrintI {
-	public void getCO2Generated();
+	public double getCO2Generated();
 }

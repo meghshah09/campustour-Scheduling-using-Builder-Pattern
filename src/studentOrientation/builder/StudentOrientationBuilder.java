@@ -1,7 +1,7 @@
 package studentOrientation.builder;
 
 /**
- * @author Shashwat Maru
+ * @author Megh Shah & Shashwat Maru
  *This class will build StudentOrientation for a particular student 
  */
 public class StudentOrientationBuilder {

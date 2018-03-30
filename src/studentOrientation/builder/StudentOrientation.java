@@ -1,66 +1,141 @@
 package studentOrientation.builder;
 import java.util.ArrayList;
 import java.util.List;
+
 import studentOrientation.activity.*;
-import studentOrientation.enums.*;
+import studentOrientation.enums.CafeteriaEnum;
+import studentOrientation.enums.GiftEnum;
+import studentOrientation.enums.LectureEnum;
+import studentOrientation.enums.SchoolBuildingEnum;
+import studentOrientation.enums.SchoolBuildingVisitRideModeEnum;
 
 /**
- * @author Shashwat Maru
+ * @author Megh Shah & Shashwat Maru
  *This class will hold a object of StudentOrientation of a particular
  *Student, It holds all the activity and the cost of doing it. 
  */
 public class StudentOrientation implements StudentOrientationI {
 	List<ActivityI> listOfActivities = new ArrayList<ActivityI>();
+	List<Double> listOfActivitiesCost = new ArrayList<Double>();
+	List<Integer> listOfActivitiesCaloriesBurnt = new ArrayList<Integer>();
+	List<Double> listOfActivitiesCarboonFootPrint = new ArrayList<Double>();
+	List<Integer> listOfActivitiesDuration = new ArrayList<Integer>();
 	private CafeteriaEnum cafeteriaToLaunch;
 	private GiftEnum giftToPick;
 	private LectureEnum lectureToAttend;
 	private SchoolBuildingEnum buildingToVisit1;
 	private SchoolBuildingEnum buildingToVisit2;
+	private SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideMode1;
+	private SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideMode2;
 	CafeteriaForLaunchI cafeteria;
 	LectureForOrientationI lectureForOrientation;
 	PickingGiftI pickingGift;
 	VisitingSchoolBuildingI visitingSchoolBuilding1;
 	VisitingSchoolBuildingI visitingSchoolBuilding2;
-
-
+	
 	public StudentOrientation(CafeteriaEnum cafeteriaIn, GiftEnum giftIn, LectureEnum lectureForOrientationIn, SchoolBuildingEnum visitingSchoolBuilding1In,
-			SchoolBuildingEnum visitingSchoolBuilding2In) {
+			SchoolBuildingEnum visitingSchoolBuilding2In, SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideMode1In, SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideMode2In) {
 
 		setCafeteriaToLaunch(cafeteriaIn);
 		setGiftToPick(giftIn);
 		setLectureToAttend(lectureForOrientationIn);
 		setBuildingToVisit1(visitingSchoolBuilding1In);
 		setBuildingToVisit2(visitingSchoolBuilding2In);
+		setSchoolBuildingVisitRideMode1(schoolBuildingVisitRideMode1In);
+		setSchoolBuildingVisitRideMode2(schoolBuildingVisitRideMode2In);
 	}
-
+	@Override
 	public void addActivityToList(ActivityI activityIn) {
 		listOfActivities.add(activityIn);
 
 	}
+	@Override
+	public void addActivityCostToList(double d) {
+		listOfActivitiesCost.add(d);
+	}
+	@Override
+	public void addActivityCarboonFootPrintToList(double activityIn) {
+		listOfActivitiesCarboonFootPrint.add(activityIn);
+		
+	}
+	@Override
+	public void addActivityDurationToList(int activityIn) {
+		listOfActivitiesDuration.add(activityIn);
+		
+	}
+	@Override
+	public void addActivityCaloriesBurntToList(int activityIn) {
+		listOfActivitiesCaloriesBurnt.add(activityIn);
+	}
 
+	@Override
+	public double getCost() {
+		double cost=0;
+		for(int index=0; index<listOfActivitiesCost.size();index++ ) {
+			cost += listOfActivitiesCost.get(index);
+		}
+		return cost;
+	}
+	@Override
+	public int getDuration() {
+		int duration=0;
+		for(int index=0; index<listOfActivitiesDuration.size();index++ ) {
+			duration += listOfActivitiesDuration.get(index);
+		}
+		return duration;
+}
+	@Override
+	public double getCarboonFootPrint() {
+		double carboonFootPrint=0;
+		for(int index=0; index<listOfActivitiesCarboonFootPrint.size();index++ ) {
+			carboonFootPrint += listOfActivitiesCarboonFootPrint.get(index);
+		}
+		return carboonFootPrint;
+	}
+	@Override
+	public int getCalories() {
+		int calories=0;
+		for(int index=0; index<listOfActivitiesCaloriesBurnt.size();index++ ) {
+			calories += listOfActivitiesCaloriesBurnt.get(index);
+		}
+		return calories;
+	}
+
+	public void showActivities() {
+		System.out.println("==================================================Below is the Student Orientation Plan for given preferences=====================================================");
+		System.out.println();
+		System.out.println("Building 1 Visited: "+getBuildingToVisit1()+ " ,Building 2 Visited: "+getBuildingToVisit2()+", Gift Picked from "+getGiftToPick()+", Launch Done @ "+getCafeteriaToLaunch()+", Lecture attended is "+getLectureToAttend()+".");
+		System.out.println();
+		System.out.println("=====================================================Total efforts associated while doing above activities=====================================================");
+		System.out.println("   Total Duration:" +getDuration() +" minutes, ");
+		System.out.println("   total Cost: $" +getCost() + ", ");
+		System.out.println("   total Calories Burnt :" +getCalories()+ " calories, ");
+		System.out.println("   and total Carboon foot print :" +getCarboonFootPrint() + " tonnes of CO2.");
+		System.out.println("===========================================Kindly give new Input for other student orientation with his/her preferences=============================================");
+	}
 	public void buildVisitingSchoolBuilding() {
 
 		switch(getBuildingToVisit1()) {
 		case BUCS:
-			visitingSchoolBuilding1 = new VisitingSchoolBUCS();
+			visitingSchoolBuilding1 = new VisitingSchoolBUCS(getSchoolBuildingVisitRideMode1());
 			break;
 		case SOM:
-			visitingSchoolBuilding1 = new VisitingSchoolSOM();
+			visitingSchoolBuilding1 = new VisitingSchoolSOM(getSchoolBuildingVisitRideMode1());
 			break;
 		case WATSON:
-			visitingSchoolBuilding1 = new VisitingSchoolWATSON();
+			visitingSchoolBuilding1 = new VisitingSchoolWATSON(getSchoolBuildingVisitRideMode1());
 			break;
 		case GSE:
-			visitingSchoolBuilding1 = new VisitingSchoolGSE();
+			visitingSchoolBuilding1 = new VisitingSchoolGSE(getSchoolBuildingVisitRideMode1());
 			break;
 		case DSON:
-			visitingSchoolBuilding1 = new VisitingSchoolDSON();
+			visitingSchoolBuilding1 = new VisitingSchoolDSON(getSchoolBuildingVisitRideMode1());
 			break;
 		case CCPA:
-			visitingSchoolBuilding1 = new VisitingSchoolCCPA();
+			visitingSchoolBuilding1 = new VisitingSchoolCCPA(getSchoolBuildingVisitRideMode1());
 			break;
 		case HC:
-			visitingSchoolBuilding1 = new VisitingSchoolHC();
+			visitingSchoolBuilding1 = new VisitingSchoolHC(getSchoolBuildingVisitRideMode1());
 			break;
 		default:
 			break;
@@ -68,30 +143,38 @@ public class StudentOrientation implements StudentOrientationI {
 
 		switch(getBuildingToVisit2()) {
 		case BUCS:
-			visitingSchoolBuilding2 = new VisitingSchoolBUCS();
+			visitingSchoolBuilding2 = new VisitingSchoolBUCS(getSchoolBuildingVisitRideMode2());
 			break;
 		case SOM:
-			visitingSchoolBuilding2 = new VisitingSchoolSOM();
+			visitingSchoolBuilding2 = new VisitingSchoolSOM(getSchoolBuildingVisitRideMode2());
 			break;
 		case WATSON:
-			visitingSchoolBuilding2 = new VisitingSchoolWATSON();
+			visitingSchoolBuilding2 = new VisitingSchoolWATSON(getSchoolBuildingVisitRideMode2());
 			break;
 		case GSE:
-			visitingSchoolBuilding2 = new VisitingSchoolGSE();
+			visitingSchoolBuilding2 = new VisitingSchoolGSE(getSchoolBuildingVisitRideMode2());
 			break;
 		case DSON:
-			visitingSchoolBuilding2 = new VisitingSchoolDSON();
+			visitingSchoolBuilding2 = new VisitingSchoolDSON(getSchoolBuildingVisitRideMode2());
 			break;
 		case CCPA:
-			visitingSchoolBuilding2 = new VisitingSchoolCCPA();
+			visitingSchoolBuilding2 = new VisitingSchoolCCPA(getSchoolBuildingVisitRideMode2());
 			break;
 		case HC:
-			visitingSchoolBuilding2 = new VisitingSchoolHC();
+			visitingSchoolBuilding2 = new VisitingSchoolHC(getSchoolBuildingVisitRideMode2());
 			break;
 		default:
 			break;
 		}
-
+		
+		addActivityCostToList(visitingSchoolBuilding1.getCost());
+		addActivityCostToList(visitingSchoolBuilding2.getCost());
+		addActivityCaloriesBurntToList(visitingSchoolBuilding1.getCalories());
+		addActivityCaloriesBurntToList(visitingSchoolBuilding2.getCalories());
+		addActivityCarboonFootPrintToList(visitingSchoolBuilding1.getCO2Generated());
+		addActivityCarboonFootPrintToList(visitingSchoolBuilding2.getCO2Generated());
+		addActivityDurationToList(visitingSchoolBuilding1.getDuration());
+		addActivityDurationToList(visitingSchoolBuilding2.getDuration());
 		addActivityToList(visitingSchoolBuilding1);
 		addActivityToList(visitingSchoolBuilding2);
 
@@ -108,6 +191,11 @@ public class StudentOrientation implements StudentOrientationI {
 		default:
 			break;
 		}
+	
+		addActivityCostToList(pickingGift.getCost());
+		addActivityCaloriesBurntToList(pickingGift.getCalories());
+		addActivityCarboonFootPrintToList(pickingGift.getCO2Generated());
+		addActivityDurationToList(pickingGift.getDuration());
 		addActivityToList(pickingGift);
 	}
 
@@ -134,6 +222,10 @@ public class StudentOrientation implements StudentOrientationI {
 		default:
 			break;
 		}
+		addActivityCostToList(lectureForOrientation.getCost());
+		addActivityCaloriesBurntToList(lectureForOrientation.getCalories());
+		addActivityCarboonFootPrintToList(lectureForOrientation.getCO2Generated());
+		addActivityDurationToList(lectureForOrientation.getDuration());
 		addActivityToList(lectureForOrientation);
 	}
 
@@ -157,6 +249,10 @@ public class StudentOrientation implements StudentOrientationI {
 		default:
 			break;
 		}
+		addActivityCostToList(cafeteria.getCost());
+		addActivityCaloriesBurntToList(cafeteria.getCalories());
+		addActivityCarboonFootPrintToList(cafeteria.getCO2Generated());
+		addActivityDurationToList(cafeteria.getDuration());
 		addActivityToList(cafeteria);
 	}
 
@@ -200,5 +296,19 @@ public class StudentOrientation implements StudentOrientationI {
 		this.buildingToVisit2 = buildingToVisit2;
 	}
 
+	public SchoolBuildingVisitRideModeEnum getSchoolBuildingVisitRideMode1() {
+		return schoolBuildingVisitRideMode1;
+	}
+	public void setSchoolBuildingVisitRideMode1(SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideMode1) {
+		this.schoolBuildingVisitRideMode1 = schoolBuildingVisitRideMode1;
+	}
+	public SchoolBuildingVisitRideModeEnum getSchoolBuildingVisitRideMode2() {
+		return schoolBuildingVisitRideMode2;
+	}
+	public void setSchoolBuildingVisitRideMode2(SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideMode2) {
+		this.schoolBuildingVisitRideMode2 = schoolBuildingVisitRideMode2;
+	}
 
+
+	
 }

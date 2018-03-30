@@ -1,7 +1,8 @@
 package studentOrientation.activity;
 
+
 /**
- * @author Shashwat Maru
+ * @author Megh Shah & Shashwat Maru
  *This interface will be use to provide an interface for different school buildings. 
  */
 public interface VisitingSchoolBuildingI extends ActivityI{
@@ -10,4 +11,5 @@ public interface VisitingSchoolBuildingI extends ActivityI{
 	long duration=0;
 	int caloriesSpent=0;
 	long carbonFootprint=0;
+	
 }

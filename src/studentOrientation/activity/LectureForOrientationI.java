@@ -1,7 +1,7 @@
 package studentOrientation.activity;
 
 /**
- * @author Shashwat Maru
+ * @author @author Megh Shah & Shashwat Maru
  * This interface provides skeleton for student attending lectures
  * for orientation activity.
  */
