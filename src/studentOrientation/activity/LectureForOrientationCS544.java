@@ -6,25 +6,41 @@ public class LectureForOrientationCS544 implements LectureForOrientationI {
 	private double carboonFootPrint;
 	private int caloriesBurnt;
 	@Override
-	public double getCost() {
+	public void calculateCost() {
 		double surchargeCost=0;
-//		surchargeCost=(12*10)/100;
 		setCostOfAttendingALecture(12+surchargeCost);
+		
+	}
+	@Override
+	public void calculateCalories() {
+		setCaloriesBurnt(9);
+		
+	}
+	@Override
+	public void calculateCo2Generated() {
+		setCarboonFootPrint(4.5);
+		
+	}
+	@Override
+	public void calculateDuration() {
+		setDurationOfAttendingALecture(90);
+		
+	}
+
+	@Override
+	public double getCost() {
 		return getCostOfAttendingALecture();
 	}
 	@Override
 	public int getCalories() {
-		setCaloriesBurnt(9);
 		return getCaloriesBurnt();
 	}
 	@Override
 	public double getCO2Generated() {
-		setCarboonFootPrint(4.5);
 		return getCarboonFootPrint();
 	}
 	@Override
 	public int getDuration() {
-		setDurationOfAttendingALecture(90);
 		return getDurationOfAttendingALecture();
 	}
 

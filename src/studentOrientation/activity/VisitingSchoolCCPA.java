@@ -1,12 +1,8 @@
 package studentOrientation.activity;
 
-import studentOrientation.activityEfforts.CaloriesBurntI;
-import studentOrientation.activityEfforts.CarboonFootPrintI;
-import studentOrientation.activityEfforts.CostI;
-import studentOrientation.activityEfforts.DurationI;
 import studentOrientation.enums.SchoolBuildingVisitRideModeEnum;
 
-public class VisitingSchoolCCPA   implements VisitingSchoolBuildingI,CostI,CaloriesBurntI, CarboonFootPrintI, DurationI {
+public class VisitingSchoolCCPA   implements VisitingSchoolBuildingI{
 
 	public VisitingSchoolCCPA(SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideModeIn) {
 //		setSchoolBuildingVisitRideMode(schoolBuildingVisitRideModeIn);
@@ -19,21 +15,7 @@ public class VisitingSchoolCCPA   implements VisitingSchoolBuildingI,CostI,Calor
 	private int caloriesBurnt;
 
 	@Override
-	public double getCost() {
-		switch(schoolBuildingVisitRideModeEnum) {
-		case BUSMODE:
-			setCostOfRide(1.0);
-			break;
-		case ONFOOT:
-			setCostOfRide(0.5);
-			break;
-		default:
-			break;
-		}
-		return getCostOfRide();
-	}
-	@Override
-	public int getDuration() {
+	public void calculateDuration() {
 		switch(getSchoolBuildingVisitRideMode()) {
 		case BUSMODE:
 			setDurationOfSchoolBuildingVisit(30);
@@ -44,12 +26,10 @@ public class VisitingSchoolCCPA   implements VisitingSchoolBuildingI,CostI,Calor
 		default:
 			break;
 		}
-		return getDurationOfSchoolBuildingVisit();
+		
 	}
-
-
 	@Override
-	public double getCO2Generated() {
+	public void calculateCo2Generated() {
 		switch(getSchoolBuildingVisitRideMode()) {
 		case BUSMODE:
 			setCarboonFootPrint(3.5);;
@@ -60,12 +40,10 @@ public class VisitingSchoolCCPA   implements VisitingSchoolBuildingI,CostI,Calor
 		default:
 			break;
 		}
-		return getCarboonFootPrint();
+		
 	}
-
-
 	@Override
-	public int getCalories() {
+	public void calculateCalories() {
 		switch(getSchoolBuildingVisitRideMode()) {
 		case BUSMODE:
 			setCaloriesBurnt(2);
@@ -76,6 +54,43 @@ public class VisitingSchoolCCPA   implements VisitingSchoolBuildingI,CostI,Calor
 		default:
 			break;
 		}
+	
+	}
+	@Override
+	public void calculateCost() {
+		switch(schoolBuildingVisitRideModeEnum) {
+		case BUSMODE:
+			setCostOfRide(1.0);
+			break;
+		case ONFOOT:
+			setCostOfRide(0.5);
+			break;
+		default:
+			break;
+		}
+		
+	}
+
+
+	
+	@Override
+	public double getCost() {
+		return getCostOfRide();
+	}
+	@Override
+	public int getDuration() {
+		return getDurationOfSchoolBuildingVisit();
+	}
+
+
+	@Override
+	public double getCO2Generated() {
+		return getCarboonFootPrint();
+	}
+
+
+	@Override
+	public int getCalories() {
 		return getCaloriesBurnt();
 	}
 
@@ -116,6 +131,5 @@ public class VisitingSchoolCCPA   implements VisitingSchoolBuildingI,CostI,Calor
 	public void setCaloriesBurnt(int caloriesBurnt) {
 		this.caloriesBurnt = caloriesBurnt;
 	}
-
 
 }

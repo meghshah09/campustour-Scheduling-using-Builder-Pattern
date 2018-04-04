@@ -5,28 +5,48 @@ public class PickingGiftUNIVERSITYUNION implements PickingGiftI {
 	private int durationOfPickingAGift;
 	private double carboonFootPrint;
 	private int caloriesBurnt;
+	@Override
+	public void calculateCost() {
+		setCostOfGift(10.5);
+		
+	}
+
+	@Override
+	public void calculateCalories() {
+		setCaloriesBurnt(60);
+		
+	}
+
+	@Override
+	public void calculateCo2Generated() {
+		setCarboonFootPrint(1.5);	
+	}
+
+	@Override
+	public void calculateDuration() {
+
+		setDurationOfPickingAGift(70);
+		
+	}
 
 	@Override
 	public double getCost() {
-		setCostOfGift(10.5);
 		return getCostOfGift();
 	}
 
 	@Override
 	public int getCalories() {
-		setCaloriesBurnt(60);
 		return getCaloriesBurnt();
 	}
 
 	@Override
 	public double getCO2Generated() {
-		setCarboonFootPrint(1.5);
+	
 		return getCarboonFootPrint();
 	}
 
 	@Override
 	public int getDuration() {
-		setDurationOfPickingAGift(70);
 		return getDurationOfPickingAGift();
 	}
 	public double getCostOfGift() {
@@ -60,6 +80,7 @@ public class PickingGiftUNIVERSITYUNION implements PickingGiftI {
 	public void setDurationOfPickingAGift(int durationOfPickingAGift) {
 		this.durationOfPickingAGift = durationOfPickingAGift;
 	}
+
 
 
 }

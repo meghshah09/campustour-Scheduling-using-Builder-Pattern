@@ -1,9 +1,8 @@
 package studentOrientation.activity;
 
-import studentOrientation.activityEfforts.*;
 import studentOrientation.enums.SchoolBuildingVisitRideModeEnum;
 
-public class VisitingSchoolWATSON implements VisitingSchoolBuildingI,CostI,CaloriesBurntI, CarboonFootPrintI, DurationI {
+public class VisitingSchoolWATSON implements VisitingSchoolBuildingI{
 
 	public VisitingSchoolWATSON(SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideModeIn) {
 		setSchoolBuildingVisitRideMode(schoolBuildingVisitRideModeIn);
@@ -13,23 +12,8 @@ public class VisitingSchoolWATSON implements VisitingSchoolBuildingI,CostI,Calor
 	private int durationOfSchoolBuildingVisit;
 	private double carboonFootPrint;
 	private int caloriesBurnt;
-
 	@Override
-	public double getCost() {
-		switch(getSchoolBuildingVisitRideMode()) {
-		case BUSMODE:
-			setCostOfRide(1.0);
-			break;
-		case ONFOOT:
-			setCostOfRide(0.5);
-			break;
-		default:
-			break;
-		}
-		return getCostOfRide();
-	}
-	@Override
-	public int getDuration() {
+	public void calculateDuration() {
 		switch(getSchoolBuildingVisitRideMode()) {
 		case BUSMODE:
 			setDurationOfSchoolBuildingVisit(30);
@@ -40,12 +24,10 @@ public class VisitingSchoolWATSON implements VisitingSchoolBuildingI,CostI,Calor
 		default:
 			break;
 		}
-		return getDurationOfSchoolBuildingVisit();
+		
 	}
-
-
 	@Override
-	public double getCO2Generated() {
+	public void calculateCo2Generated() {
 		switch(getSchoolBuildingVisitRideMode()) {
 		case BUSMODE:
 			setCarboonFootPrint(3.5);;
@@ -56,12 +38,10 @@ public class VisitingSchoolWATSON implements VisitingSchoolBuildingI,CostI,Calor
 		default:
 			break;
 		}
-		return getCarboonFootPrint();
+		
 	}
-
-
 	@Override
-	public int getCalories() {
+	public void calculateCalories() {
 		switch(getSchoolBuildingVisitRideMode()) {
 		case BUSMODE:
 			setCaloriesBurnt(2);
@@ -72,6 +52,41 @@ public class VisitingSchoolWATSON implements VisitingSchoolBuildingI,CostI,Calor
 		default:
 			break;
 		}
+		
+	}
+	@Override
+	public void calculateCost() {
+		switch(getSchoolBuildingVisitRideMode()) {
+		case BUSMODE:
+			setCostOfRide(1.0);
+			break;
+		case ONFOOT:
+			setCostOfRide(0.5);
+			break;
+		default:
+			break;
+		}
+		
+	}
+
+	@Override
+	public double getCost() {
+		return getCostOfRide();
+	}
+	@Override
+	public int getDuration() {
+		return getDurationOfSchoolBuildingVisit();
+	}
+
+
+	@Override
+	public double getCO2Generated() {
+		return getCarboonFootPrint();
+	}
+
+
+	@Override
+	public int getCalories() {
 		return getCaloriesBurnt();
 		
 	}

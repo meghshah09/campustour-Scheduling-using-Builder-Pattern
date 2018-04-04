@@ -6,29 +6,54 @@ public class PickingGiftEVENTCENTER implements PickingGiftI {
 	private double carboonFootPrint;
 	private int caloriesBurnt;
 
+	@Override
+	public void calculateCost() {
+		setCostOfGift(18.8);
+		
+	}
+
+	@Override
+	public void calculateCalories() {
+		setCaloriesBurnt(45);
+		
+	}
+
+	@Override
+	public void calculateCo2Generated() {
+		setCarboonFootPrint(3.2);
+		
+	}
+
+	@Override
+	public void calculateDuration() {
+		setDurationOfPickingAGift(50);
+		
+	}
+
 		@Override
 	public double getCost() {
-			setCostOfGift(18.8);
 			return getCostOfGift();
 	}
 
 	@Override
 	public int getCalories() {
-		setCaloriesBurnt(45);
 		return getCaloriesBurnt();
 	}
 
 	@Override
 	public double getCO2Generated() {
-		setCarboonFootPrint(3.2);
 		return getCarboonFootPrint();
 	}
 
 	@Override
 	public int getDuration() {
-		setDurationOfPickingAGift(50);
 		return getDurationOfPickingAGift();
 	}
+
+	
+	
+	
+	
 	public double getCostOfGift() {
 		return costOfGift;
 	}

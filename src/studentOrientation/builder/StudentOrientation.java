@@ -16,10 +16,6 @@ import studentOrientation.enums.SchoolBuildingVisitRideModeEnum;
  */
 public class StudentOrientation implements StudentOrientationI {
 	List<ActivityI> listOfActivities = new ArrayList<ActivityI>();
-	List<Double> listOfActivitiesCost = new ArrayList<Double>();
-	List<Integer> listOfActivitiesCaloriesBurnt = new ArrayList<Integer>();
-	List<Double> listOfActivitiesCarboonFootPrint = new ArrayList<Double>();
-	List<Integer> listOfActivitiesDuration = new ArrayList<Integer>();
 	private CafeteriaEnum cafeteriaToLaunch;
 	private GiftEnum giftToPick;
 	private LectureEnum lectureToAttend;
@@ -49,54 +45,38 @@ public class StudentOrientation implements StudentOrientationI {
 		listOfActivities.add(activityIn);
 
 	}
-	@Override
-	public void addActivityCostToList(double d) {
-		listOfActivitiesCost.add(d);
-	}
-	@Override
-	public void addActivityCarboonFootPrintToList(double activityIn) {
-		listOfActivitiesCarboonFootPrint.add(activityIn);
-		
-	}
-	@Override
-	public void addActivityDurationToList(int activityIn) {
-		listOfActivitiesDuration.add(activityIn);
-		
-	}
-	@Override
-	public void addActivityCaloriesBurntToList(int activityIn) {
-		listOfActivitiesCaloriesBurnt.add(activityIn);
-	}
 
 	@Override
-	public double getCost() {
+	public double getTotalCost() {
 		double cost=0;
-		for(int index=0; index<listOfActivitiesCost.size();index++ ) {
-			cost += listOfActivitiesCost.get(index);
+		for(ActivityI activity: listOfActivities) {
+			cost += activity.getCost();
 		}
 		return cost;
 	}
 	@Override
-	public int getDuration() {
+	public int getTotalDuration() {
 		int duration=0;
-		for(int index=0; index<listOfActivitiesDuration.size();index++ ) {
-			duration += listOfActivitiesDuration.get(index);
-		}
+		for(ActivityI activity: listOfActivities) {
+			duration += activity.getDuration();
+	}
+
 		return duration;
 }
 	@Override
-	public double getCarboonFootPrint() {
+	public double getTotalCarboonFootPrint() {
 		double carboonFootPrint=0;
-		for(int index=0; index<listOfActivitiesCarboonFootPrint.size();index++ ) {
-			carboonFootPrint += listOfActivitiesCarboonFootPrint.get(index);
+		for(ActivityI activity: listOfActivities) {
+			carboonFootPrint += activity.getCO2Generated();
+			
 		}
 		return carboonFootPrint;
 	}
 	@Override
-	public int getCalories() {
+	public int getTotalCalories() {
 		int calories=0;
-		for(int index=0; index<listOfActivitiesCaloriesBurnt.size();index++ ) {
-			calories += listOfActivitiesCaloriesBurnt.get(index);
+		for(ActivityI activity: listOfActivities) {
+			calories += activity.getCalories();
 		}
 		return calories;
 	}
@@ -107,10 +87,10 @@ public class StudentOrientation implements StudentOrientationI {
 		System.out.println("Building 1 Visited: "+getBuildingToVisit1()+ " ,Building 2 Visited: "+getBuildingToVisit2()+", Gift Picked from "+getGiftToPick()+", Launch Done @ "+getCafeteriaToLaunch()+", Lecture attended is "+getLectureToAttend()+".");
 		System.out.println();
 		System.out.println("=====================================================Total efforts associated while doing above activities=====================================================");
-		System.out.println("   Total Duration:" +getDuration() +" minutes, ");
-		System.out.println("   total Cost: $" +getCost() + ", ");
-		System.out.println("   total Calories Burnt :" +getCalories()+ " calories, ");
-		System.out.println("   and total Carboon foot print :" +getCarboonFootPrint() + " tonnes of CO2.");
+		System.out.println("   Total Duration:" +getTotalDuration() +" minutes, ");
+		System.out.println("   total Cost: $" +getTotalCost() + ", ");
+		System.out.println("   total Calories Burnt :" +getTotalCalories()+ " calories, ");
+		System.out.println("   and total Carboon foot print :" +getTotalCarboonFootPrint() + " tonnes of CO2.");
 		System.out.println("===========================================Kindly give new Input for other student orientation with his/her preferences=============================================");
 	}
 	public void buildVisitingSchoolBuilding() {
@@ -167,17 +147,17 @@ public class StudentOrientation implements StudentOrientationI {
 			break;
 		}
 		
-		addActivityCostToList(visitingSchoolBuilding1.getCost());
-		addActivityCostToList(visitingSchoolBuilding2.getCost());
-		addActivityCaloriesBurntToList(visitingSchoolBuilding1.getCalories());
-		addActivityCaloriesBurntToList(visitingSchoolBuilding2.getCalories());
-		addActivityCarboonFootPrintToList(visitingSchoolBuilding1.getCO2Generated());
-		addActivityCarboonFootPrintToList(visitingSchoolBuilding2.getCO2Generated());
-		addActivityDurationToList(visitingSchoolBuilding1.getDuration());
-		addActivityDurationToList(visitingSchoolBuilding2.getDuration());
+				
+		visitingSchoolBuilding1.calculateCost();
+		visitingSchoolBuilding2.calculateCost();
+		visitingSchoolBuilding1.calculateCalories();
+		visitingSchoolBuilding2.calculateCalories();
+		visitingSchoolBuilding1.calculateCo2Generated();
+		visitingSchoolBuilding2.calculateCo2Generated();
+		visitingSchoolBuilding1.calculateDuration();
+		visitingSchoolBuilding2.calculateDuration();
 		addActivityToList(visitingSchoolBuilding1);
 		addActivityToList(visitingSchoolBuilding2);
-
 	}
 
 	public void buildPickingGift() {
@@ -192,10 +172,10 @@ public class StudentOrientation implements StudentOrientationI {
 			break;
 		}
 	
-		addActivityCostToList(pickingGift.getCost());
-		addActivityCaloriesBurntToList(pickingGift.getCalories());
-		addActivityCarboonFootPrintToList(pickingGift.getCO2Generated());
-		addActivityDurationToList(pickingGift.getDuration());
+		pickingGift.calculateCost();
+		pickingGift.calculateCalories();
+		pickingGift.calculateCo2Generated();
+		pickingGift.calculateDuration();
 		addActivityToList(pickingGift);
 	}
 
@@ -222,10 +202,10 @@ public class StudentOrientation implements StudentOrientationI {
 		default:
 			break;
 		}
-		addActivityCostToList(lectureForOrientation.getCost());
-		addActivityCaloriesBurntToList(lectureForOrientation.getCalories());
-		addActivityCarboonFootPrintToList(lectureForOrientation.getCO2Generated());
-		addActivityDurationToList(lectureForOrientation.getDuration());
+		lectureForOrientation.calculateCost();
+		lectureForOrientation.calculateCalories();
+		lectureForOrientation.calculateCo2Generated();
+		lectureForOrientation.calculateDuration();
 		addActivityToList(lectureForOrientation);
 	}
 
@@ -249,10 +229,10 @@ public class StudentOrientation implements StudentOrientationI {
 		default:
 			break;
 		}
-		addActivityCostToList(cafeteria.getCost());
-		addActivityCaloriesBurntToList(cafeteria.getCalories());
-		addActivityCarboonFootPrintToList(cafeteria.getCO2Generated());
-		addActivityDurationToList(cafeteria.getDuration());
+		cafeteria.calculateCost();
+		cafeteria.calculateCalories();
+		cafeteria.calculateCo2Generated();
+		cafeteria.calculateDuration();
 		addActivityToList(cafeteria);
 	}
 
@@ -307,8 +287,5 @@ public class StudentOrientation implements StudentOrientationI {
 	}
 	public void setSchoolBuildingVisitRideMode2(SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideMode2) {
 		this.schoolBuildingVisitRideMode2 = schoolBuildingVisitRideMode2;
-	}
-
-
-	
+	}	
 }

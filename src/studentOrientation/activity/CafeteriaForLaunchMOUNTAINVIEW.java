@@ -5,31 +5,46 @@ public class CafeteriaForLaunchMOUNTAINVIEW implements CafeteriaForLaunchI {
 	private int durationOfLaunch;
 	private double carboonFootPrint;
 	private int caloriesBurnt;
+	@Override
+	public void calculateCost() {
+		double surchargeCost=0;
+		surchargeCost=12*0.06;
+		setCostOflaunch(12+surchargeCost);		
+	}
+
+	@Override
+	public void calculateCalories() {
+		setCaloriesBurnt(-20);
+	}
+
+	@Override
+	public void calculateCo2Generated() {
+		setCarboonFootPrint(6);
+	}
+
+	@Override
+	public void calculateDuration() {
+
+		setDurationOfLaunch(30);
+	}
 
 	@Override
 	public double getCost() {
-		double surchargeCost=0;
-		surchargeCost=(12*6)/100;
-		setCostOflaunch(12+surchargeCost);
 		return getCostOflaunch();
 	}
 
 	@Override
 	public int getCalories() {
-		
-		setCaloriesBurnt(-20);
 		return getCaloriesBurnt();
 	}
 
 	@Override
 	public double getCO2Generated() {
-		setCarboonFootPrint(6);
 		return getCarboonFootPrint();
 	}
 
 	@Override
 	public int getDuration() {
-		setDurationOfLaunch(30);
 		return getDurationOfLaunch();
 	}
 	public double getCostOflaunch() {
@@ -63,6 +78,7 @@ public class CafeteriaForLaunchMOUNTAINVIEW implements CafeteriaForLaunchI {
 	public void setCaloriesBurnt(int caloriesBurnt) {
 		this.caloriesBurnt = caloriesBurnt;
 	}
+
 
 
 }

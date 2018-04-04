@@ -7,27 +7,48 @@ public class CafeteriaForLaunchCAFETERIAINWOODS implements CafeteriaForLaunchI {
 	private int caloriesBurnt;
 
 	@Override
-	public double getCost() {
+	public void calculateCost() {
 		setCostOflaunch(12);
+		
+	}
+
+	@Override
+	public void calculateCalories() {
+		setCaloriesBurnt(-20);
+		
+	}
+
+	@Override
+	public void calculateCo2Generated() {
+		setCarboonFootPrint(6);
+		
+	}
+
+	@Override
+	public void calculateDuration() {
+		setDurationOfLaunch(30);
+		
+	}
+
+
+	@Override
+	public double getCost() {
 		return getCostOflaunch();
 	}
 
 	@Override
 	public int getCalories() {
 		
-		setCaloriesBurnt(-20);
 		return getCaloriesBurnt();
 	}
 
 	@Override
 	public double getCO2Generated() {
-		setCarboonFootPrint(6);
 		return getCarboonFootPrint();
 	}
 
 	@Override
 	public int getDuration() {
-		setDurationOfLaunch(30);
 		return getDurationOfLaunch();
 	}
 	public double getCostOflaunch() {
@@ -61,6 +82,5 @@ public class CafeteriaForLaunchCAFETERIAINWOODS implements CafeteriaForLaunchI {
 	public void setCaloriesBurnt(int caloriesBurnt) {
 		this.caloriesBurnt = caloriesBurnt;
 	}
-
 
 }

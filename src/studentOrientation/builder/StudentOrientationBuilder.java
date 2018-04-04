@@ -6,7 +6,7 @@ package studentOrientation.builder;
  */
 public class StudentOrientationBuilder {
 	
-	public void planOrientation(StudentOrientationI studentOrientationIn) {
+	public void buildStudentOrientation(StudentOrientationI studentOrientationIn) {
 		studentOrientationIn.buildVisitingSchoolBuilding();
 		studentOrientationIn.buildPickingGift();
 		studentOrientationIn.buildLaunchAtCafeteria();
