@@ -1,7 +1,11 @@
 package studentOrientation.builder;
 
 import studentOrientation.activity.ActivityI;
-
+/**
+ * 
+ * @author Megh Shah and Shashwat Maru
+ * Student Orientation Interface which builds various events.
+ */
 public interface StudentOrientationI {
 	public void buildVisitingSchoolBuilding();
 	public void buildPickingGift();

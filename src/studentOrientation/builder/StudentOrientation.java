@@ -28,7 +28,16 @@ public class StudentOrientation implements StudentOrientationI {
 	PickingGiftI pickingGift;
 	VisitingSchoolBuildingI visitingSchoolBuilding1;
 	VisitingSchoolBuildingI visitingSchoolBuilding2;
-	
+	/**
+         * Parameterized Constructor.
+         * @param cafeteriaIn type of cafeteria from ENUM.
+         * @param giftIn type of gift from ENUM.
+         * @param lectureForOrientationIn type of Lecture for orientation from ENUM.
+         * @param visitingSchoolBuilding1In type of ENUM for Visiting School Building.(visit 1)
+         * @param visitingSchoolBuilding2In type of ENUM for Visiting School Building. (visit 2)
+         * @param schoolBuildingVisitRideMode1In type of ENUM for Ride mode take for Visiting School Building.(visit 1)
+         * @param schoolBuildingVisitRideMode2In type of ENUM for Ride mode take for Visiting School Building.(visit 2)
+         */
 	public StudentOrientation(CafeteriaEnum cafeteriaIn, GiftEnum giftIn, LectureEnum lectureForOrientationIn, SchoolBuildingEnum visitingSchoolBuilding1In,
 			SchoolBuildingEnum visitingSchoolBuilding2In, SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideMode1In, SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideMode2In) {
 
@@ -40,12 +49,21 @@ public class StudentOrientation implements StudentOrientationI {
 		setSchoolBuildingVisitRideMode1(schoolBuildingVisitRideMode1In);
 		setSchoolBuildingVisitRideMode2(schoolBuildingVisitRideMode2In);
 	}
+        
+        /**
+         * 
+         * @param activityIn type of Interface ActivityI
+         */
 	@Override
 	public void addActivityToList(ActivityI activityIn) {
 		listOfActivities.add(activityIn);
 
 	}
 
+        /**
+         * 
+         * @return the total cost of the planned activity which is of type double. 
+         */
 	@Override
 	public double getTotalCost() {
 		double cost=0;
@@ -54,6 +72,11 @@ public class StudentOrientation implements StudentOrientationI {
 		}
 		return cost;
 	}
+        
+        /**
+         * 
+         * @return the total Duration for visiting all the activities of type int. 
+         */
 	@Override
 	public int getTotalDuration() {
 		int duration=0;
@@ -62,7 +85,12 @@ public class StudentOrientation implements StudentOrientationI {
 	}
 
 		return duration;
-}
+        }
+        
+        /**
+         * 
+         * @return the total Carbon Foot print of type double. 
+         */
 	@Override
 	public double getTotalCarboonFootPrint() {
 		double carboonFootPrint=0;
@@ -72,6 +100,11 @@ public class StudentOrientation implements StudentOrientationI {
 		}
 		return carboonFootPrint;
 	}
+        
+        /**
+         * 
+         * @return the total calories of type int. 
+         */
 	@Override
 	public int getTotalCalories() {
 		int calories=0;
@@ -81,6 +114,9 @@ public class StudentOrientation implements StudentOrientationI {
 		return calories;
 	}
 
+        /**
+         * method use for printing to stdout.
+         */
 	public void showActivities() {
 		System.out.println("==================================================Below is the Student Orientation Plan for given preferences=====================================================");
 		System.out.println();
@@ -93,6 +129,11 @@ public class StudentOrientation implements StudentOrientationI {
 		System.out.println("   and total Carboon foot print :" +getTotalCarboonFootPrint() + " tonnes of CO2.");
 		System.out.println("===========================================Kindly give new Input for other student orientation with his/her preferences=============================================");
 	}
+        
+        /**
+         * Plans the two visit to School Building, calculates the Cost,Duration,Carbon Foot Prints and Calories and adds to the Array list of Activity.
+         */
+        @Override
 	public void buildVisitingSchoolBuilding() {
 
 		switch(getBuildingToVisit1()) {
@@ -160,6 +201,10 @@ public class StudentOrientation implements StudentOrientationI {
 		addActivityToList(visitingSchoolBuilding2);
 	}
 
+        /**
+         * Builds the Packing Gift event and calculates the cost,calories, carbon footprints and duration.
+         */
+        @Override
 	public void buildPickingGift() {
 		switch(getGiftToPick()) {
 		case EVENTCENTER:
@@ -179,6 +224,10 @@ public class StudentOrientation implements StudentOrientationI {
 		addActivityToList(pickingGift);
 	}
 
+        /**
+         * Builds the Attending Lecture event and calculates its cost, duration and carbon foot prints
+         */
+        @Override
 	public void buildAttendingLecture() {
 		switch(getLectureToAttend()) {
 		case CS542: 
@@ -209,6 +258,10 @@ public class StudentOrientation implements StudentOrientationI {
 		addActivityToList(lectureForOrientation);
 	}
 
+        /**
+         * Builds the Lunch at cafeteria event and calculates the Calories, Duration, cost and carbon foot prints for this event.
+         */
+        @Override
 	public void buildLaunchAtCafeteria() {
 		switch(getCafeteriaToLaunch()) {
 		case CAFETERIAINWOODS: 
@@ -236,55 +289,112 @@ public class StudentOrientation implements StudentOrientationI {
 		addActivityToList(cafeteria);
 	}
 
+        /**
+         * 
+         * @return the cafeteria selected by user for lunch which is of type ENUM.
+         */
 	public CafeteriaEnum getCafeteriaToLaunch() {
 		return cafeteriaToLaunch;
 	}
-
+       
+        /**
+         * 
+         * @param cafeteriaToLaunch contains the value of cafeteria (ENUM) selected by the USer for lunch.
+         */
 	public void setCafeteriaToLaunch(CafeteriaEnum cafeteriaToLaunch) {
 		this.cafeteriaToLaunch = cafeteriaToLaunch;
 	}
 
+        /**
+         * 
+         * @return the Gift ENUM which is to be collected by the user. 
+         */
 	public GiftEnum getGiftToPick() {
 		return giftToPick;
 	}
 
+        /**
+         * 
+         * @param giftToPick sets the ENUM selected which needs to be picked by the user.
+         */
+        
 	public void setGiftToPick(GiftEnum giftToPick) {
 		this.giftToPick = giftToPick;
 	}
 
+        /**
+         * 
+         * @return ENUM of Lecture which user will be attending.
+         */
 	public LectureEnum getLectureToAttend() {
 		return lectureToAttend;
 	}
 
+        /**
+         * 
+         * @param lectureToAttend sets the Lecture to be attended by the user which is of type ENUM.
+         */
 	public void setLectureToAttend(LectureEnum lectureToAttend) {
 		this.lectureToAttend = lectureToAttend;
 	}
 
+        /**
+         * 
+         * @return ENUM of building first visited.
+         */
 	public SchoolBuildingEnum getBuildingToVisit1() {
 		return buildingToVisit1;
 	}
 
+        /**
+         * 
+         * @param buildingToVisit1 sets the ENUM of building to be visited.
+         */
 	public void setBuildingToVisit1(SchoolBuildingEnum buildingToVisit1) {
 		this.buildingToVisit1 = buildingToVisit1;
 	}
 
+        /**
+         * 
+         * @return ENUM of Second building to be visited
+         */
 	public SchoolBuildingEnum getBuildingToVisit2() {
 		return buildingToVisit2;
 	}
 
+        /**
+         * 
+         * @param buildingToVisit2 sets the Second building ENUM to be visited. 
+         */
 	public void setBuildingToVisit2(SchoolBuildingEnum buildingToVisit2) {
 		this.buildingToVisit2 = buildingToVisit2;
 	}
 
+        /**
+         * 
+         * @return ENUM of the RIDE MODE of visiting the first school building. 
+         */
 	public SchoolBuildingVisitRideModeEnum getSchoolBuildingVisitRideMode1() {
 		return schoolBuildingVisitRideMode1;
 	}
+        /**
+         * 
+         * @param schoolBuildingVisitRideMode1 ENUM of the RIDE MODE of visiting the first school building.
+         */
 	public void setSchoolBuildingVisitRideMode1(SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideMode1) {
 		this.schoolBuildingVisitRideMode1 = schoolBuildingVisitRideMode1;
 	}
+        /**
+         * 
+         * @return ENUM of the RIDE MODE of visiting the second school building.
+         */
 	public SchoolBuildingVisitRideModeEnum getSchoolBuildingVisitRideMode2() {
 		return schoolBuildingVisitRideMode2;
 	}
+        /**
+         * 
+         * @param schoolBuildingVisitRideMode2 ENUM of the RIDE MODE of visiting the second school building.
+         */
 	public void setSchoolBuildingVisitRideMode2(SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideMode2) {
 		this.schoolBuildingVisitRideMode2 = schoolBuildingVisitRideMode2;
 	}	

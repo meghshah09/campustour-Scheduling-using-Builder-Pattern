@@ -8,8 +8,17 @@ import studentOrientation.enums.LectureEnum;
 import studentOrientation.enums.SchoolBuildingEnum;
 import studentOrientation.enums.SchoolBuildingVisitRideModeEnum;
 
+/*
+Driver Class
+*/
+
 public class Driver {
 
+    /**
+     * 
+     * @param args Command line Arguments given by user.
+     * Main method is public and returns void. 
+     */
 	public static void main(String[] args) {
 			
 		StudentOrientation studentOrientation = new StudentOrientation(CafeteriaEnum.MARKETPLACE,GiftEnum.EVENTCENTER,LectureEnum.CS540,SchoolBuildingEnum.BUCS,
