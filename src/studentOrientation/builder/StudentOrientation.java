@@ -8,6 +8,7 @@ import studentOrientation.enums.GiftEnum;
 import studentOrientation.enums.LectureEnum;
 import studentOrientation.enums.SchoolBuildingEnum;
 import studentOrientation.enums.SchoolBuildingVisitRideModeEnum;
+import studentOrientation.util.Results;
 
 /**
  * @author Megh Shah & Shashwat Maru
@@ -116,19 +117,24 @@ public class StudentOrientation implements StudentOrientationI {
 
         /**
          * method use for printing to stdout.
+         * @param rIn Results class object
          */
-	public void showActivities() {
-		System.out.println("==================================================Below is the Student Orientation Plan for given preferences=====================================================");
-		System.out.println();
-		System.out.println("Building 1 Visited: "+getBuildingToVisit1()+ " ,Building 2 Visited: "+getBuildingToVisit2()+", Gift Picked from "+getGiftToPick()+", Launch Done @ "+getCafeteriaToLaunch()+", Lecture attended is "+getLectureToAttend()+".");
-		System.out.println();
-		System.out.println("=====================================================Total efforts associated while doing above activities=====================================================");
-		System.out.println("   Total Duration:" +getTotalDuration() +" minutes, ");
-		System.out.println("   total Cost: $" +getTotalCost() + ", ");
-		System.out.println("   total Calories Burnt :" +getTotalCalories()+ " calories, ");
-		System.out.println("   and total Carboon foot print :" +getTotalCarboonFootPrint() + " tonnes of CO2.");
-		System.out.println("===========================================Kindly give new Input for other student orientation with his/her preferences=============================================");
-	}
+        @Override
+	public void showActivities(Results rIn) {
+		String str = "==================================================Below is the Student Orientation Plan for given preferences=====================================================\n";
+		str = str + "\n";
+		str += "Building 1 Visited: "+getBuildingToVisit1()+ " ,Building 2 Visited: "+getBuildingToVisit2()
+                        +", Gift Picked from "+getGiftToPick()+", Launch Done @ "+getCafeteriaToLaunch()+", Lecture attended is "+getLectureToAttend()+".\n";
+		str += "\n";
+		str += "=====================================================Total efforts associated while doing above activities=====================================================\n";
+                       str += "   Total Duration:" +getTotalDuration() +" minutes, \n";
+                str += "   total Cost: $" +getTotalCost() + ", \n";
+		str += "   total Calories Burnt :" +getTotalCalories()+ " calories, \n";
+		str += "   and total Carboon foot print :" +getTotalCarboonFootPrint() + " tonnes of CO2.\n";
+		str +="===========================================Kindly give new Input for other student orientation with his/her preferences=============================================\n";
+                
+                rIn.stdoutDisplay(str);
+        }
         
         /**
          * Plans the two visit to School Building, calculates the Cost,Duration,Carbon Foot Prints and Calories and adds to the Array list of Activity.

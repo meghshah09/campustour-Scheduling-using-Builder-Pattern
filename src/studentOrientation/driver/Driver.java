@@ -7,6 +7,7 @@ import studentOrientation.enums.GiftEnum;
 import studentOrientation.enums.LectureEnum;
 import studentOrientation.enums.SchoolBuildingEnum;
 import studentOrientation.enums.SchoolBuildingVisitRideModeEnum;
+import studentOrientation.util.Results;
 
 /*
 Driver Class
@@ -25,6 +26,7 @@ public class Driver {
 				SchoolBuildingEnum.CCPA, SchoolBuildingVisitRideModeEnum.BUSMODE, SchoolBuildingVisitRideModeEnum.ONFOOT);
 		StudentOrientationBuilder studentOrientationBuilder = new StudentOrientationBuilder();
 		studentOrientationBuilder.buildStudentOrientation(studentOrientation);
-		studentOrientation.showActivities();
+                Results result = new Results();
+		studentOrientation.showActivities(result);
 	}
 }

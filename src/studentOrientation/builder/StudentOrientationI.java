@@ -1,6 +1,7 @@
 package studentOrientation.builder;
 
 import studentOrientation.activity.ActivityI;
+import studentOrientation.util.Results;
 /**
  * 
  * @author Megh Shah and Shashwat Maru
@@ -16,5 +17,5 @@ public interface StudentOrientationI {
 	public int getTotalDuration();
 	public double getTotalCarboonFootPrint();
 	public int getTotalCalories();
-	public void showActivities();
+	public void showActivities(Results rIn);
 }
