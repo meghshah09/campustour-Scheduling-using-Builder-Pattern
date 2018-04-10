@@ -128,5 +128,11 @@ public class VisitingSchoolGSE  implements VisitingSchoolBuildingI {
 		this.caloriesBurnt = caloriesBurnt;
 	}
 
+        
+        @Override
+        public String toString(){
+            String str = "Cost : $" +getCost()+" Co2 : "+ getCO2Generated() +" Calories : "+getCalories()+" Duration(minutes) : "+getDuration();
+            return str;
+        }
 
 }

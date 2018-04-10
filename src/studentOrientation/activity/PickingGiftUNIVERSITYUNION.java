@@ -80,7 +80,13 @@ public class PickingGiftUNIVERSITYUNION implements PickingGiftI {
 	public void setDurationOfPickingAGift(int durationOfPickingAGift) {
 		this.durationOfPickingAGift = durationOfPickingAGift;
 	}
-
+        
+        
+        @Override
+        public String toString(){
+            String str = "Cost : $" +getCost()+" Co2 : "+ getCO2Generated() +" Calories : "+getCalories()+" Duration(minutes) : "+getDuration();
+            return str;
+        }
 
 
 }

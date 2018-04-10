@@ -8,8 +8,8 @@ public class LectureForOrientationCS542 implements LectureForOrientationI {
 	@Override
 	public void calculateCost() {
 		
-		double surchargeCost;
-                surchargeCost = 18*0.10;
+		double surchargeCost=0;
+		surchargeCost=18*0.10;
 		setCostOfAttendingALecture(18+surchargeCost);
 		
 	}
@@ -72,5 +72,11 @@ public class LectureForOrientationCS542 implements LectureForOrientationI {
 	public void setDurationOfAttendingALecture(int durationOfAttendingALecture) {
 		this.durationOfAttendingALecture = durationOfAttendingALecture;
 	}
+        
+        @Override
+        public String toString(){
+            String str = "Cost : $" +getCost()+" Co2 : "+ getCO2Generated() +" Calories : "+getCalories()+" Duration(minutes) : "+getDuration();
+            return str;
+        }
 
 }

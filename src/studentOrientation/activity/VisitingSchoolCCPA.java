@@ -18,10 +18,10 @@ public class VisitingSchoolCCPA   implements VisitingSchoolBuildingI{
 	public void calculateDuration() {
 		switch(getSchoolBuildingVisitRideMode()) {
 		case BUSMODE:
-			setDurationOfSchoolBuildingVisit(30);
+			setDurationOfSchoolBuildingVisit(20);
 			break;
 		case ONFOOT:
-			setDurationOfSchoolBuildingVisit(60);
+			setDurationOfSchoolBuildingVisit(64);
 			break;
 		default:
 			break;
@@ -32,10 +32,10 @@ public class VisitingSchoolCCPA   implements VisitingSchoolBuildingI{
 	public void calculateCo2Generated() {
 		switch(getSchoolBuildingVisitRideMode()) {
 		case BUSMODE:
-			setCarboonFootPrint(3.5);;
+			setCarboonFootPrint(4.5);;
 			break;
 		case ONFOOT:
-			setCarboonFootPrint(0.5);
+			setCarboonFootPrint(0.9);
 			break;
 		default:
 			break;
@@ -46,10 +46,10 @@ public class VisitingSchoolCCPA   implements VisitingSchoolBuildingI{
 	public void calculateCalories() {
 		switch(getSchoolBuildingVisitRideMode()) {
 		case BUSMODE:
-			setCaloriesBurnt(2);
+			setCaloriesBurnt(10);
 			break;
 		case ONFOOT:
-			setCaloriesBurnt(100);
+			setCaloriesBurnt(90);
 			break;
 		default:
 			break;
@@ -131,5 +131,11 @@ public class VisitingSchoolCCPA   implements VisitingSchoolBuildingI{
 	public void setCaloriesBurnt(int caloriesBurnt) {
 		this.caloriesBurnt = caloriesBurnt;
 	}
+        
+        @Override
+        public String toString(){
+            String str = "Cost : $" +getCost()+" Co2 : "+ getCO2Generated() +" Calories : "+getCalories()+" Duration(minutes) : "+getDuration();
+            return str;
+        }
 
 }

@@ -70,5 +70,11 @@ public class LectureForOrientationCS543 implements LectureForOrientationI {
 	public void setDurationOfAttendingALecture(int durationOfAttendingALecture) {
 		this.durationOfAttendingALecture = durationOfAttendingALecture;
 	}
-
+        
+        
+        @Override
+        public String toString(){
+            String str = "Cost : $" +getCost()+" Co2 : "+ getCO2Generated() +" Calories : "+getCalories()+" Duration(minutes) : "+getDuration();
+            return str;
+        }
 }

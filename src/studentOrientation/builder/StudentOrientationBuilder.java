@@ -7,13 +7,13 @@ package studentOrientation.builder;
 public class StudentOrientationBuilder {
 	/**
          * 
-         * @param studentOrientationIn Student Orientation Object of type Interface.(Basically contains the Umbrella Object)
+         * @param studentOrientationIn Student Orientation Object of type Interface.(Basically builds the Umbrella Object)
          */
 	public void buildStudentOrientation(StudentOrientationI studentOrientationIn) {
-		studentOrientationIn.buildVisitingSchoolBuilding();
-		studentOrientationIn.buildPickingGift();
-		studentOrientationIn.buildLaunchAtCafeteria();
-		studentOrientationIn.buildAttendingLecture();
+		studentOrientationIn.buildVisitingSchoolBuilding(); //event 1
+		studentOrientationIn.buildPickingGift(); //event 2
+		studentOrientationIn.buildLaunchAtCafeteria(); //event 3
+		studentOrientationIn.buildAttendingLecture(); // event 4
 		
 	}
 	

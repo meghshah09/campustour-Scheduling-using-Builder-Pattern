@@ -2,7 +2,7 @@ package studentOrientation.activity;
 
 import studentOrientation.enums.SchoolBuildingVisitRideModeEnum;
 
-public class VisitingSchoolBUCS   implements VisitingSchoolBuildingI{
+public class VisitingSchoolBUCS implements VisitingSchoolBuildingI{
 
 	public VisitingSchoolBUCS(SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideModeIn) {
 		setSchoolBuildingVisitRideMode(schoolBuildingVisitRideModeIn);
@@ -17,10 +17,10 @@ public class VisitingSchoolBUCS   implements VisitingSchoolBuildingI{
 	public void calculateDuration() {
 		switch(getSchoolBuildingVisitRideMode()) {
 		case BUSMODE:
-			setDurationOfSchoolBuildingVisit(30);
+			setDurationOfSchoolBuildingVisit(35);
 			break;
 		case ONFOOT:
-			setDurationOfSchoolBuildingVisit(60);
+			setDurationOfSchoolBuildingVisit(65);
 			break;
 		default:
 			break;
@@ -31,10 +31,10 @@ public class VisitingSchoolBUCS   implements VisitingSchoolBuildingI{
 	public void calculateCo2Generated() {
 		switch(getSchoolBuildingVisitRideMode()) {
 		case BUSMODE:
-			setCarboonFootPrint(3.5);;
+			setCarboonFootPrint(3.5);
 			break;
 		case ONFOOT:
-			setCarboonFootPrint(0.5);
+			setCarboonFootPrint(0.7);
 			break;
 		default:
 			break;
@@ -44,10 +44,10 @@ public class VisitingSchoolBUCS   implements VisitingSchoolBuildingI{
 	public void calculateCalories() {
 		switch(getSchoolBuildingVisitRideMode()) {
 		case BUSMODE:
-			setCaloriesBurnt(2);
+			setCaloriesBurnt(5);
 			break;
 		case ONFOOT:
-			setCaloriesBurnt(100);
+			setCaloriesBurnt(105);
 			break;
 		default:
 			break;
@@ -76,7 +76,7 @@ public class VisitingSchoolBUCS   implements VisitingSchoolBuildingI{
 	}
 	@Override
 	public int getDuration() {
-			return getDurationOfSchoolBuildingVisit();
+            return getDurationOfSchoolBuildingVisit();
 	}
 
 
@@ -130,6 +130,13 @@ public class VisitingSchoolBUCS   implements VisitingSchoolBuildingI{
 	public void setCaloriesBurnt(int caloriesBurnt) {
 		this.caloriesBurnt = caloriesBurnt;
 	}
+        
+        
+        @Override
+        public String toString(){
+            String str = "Cost : $" +getCost()+" Co2 : "+ getCO2Generated() +" Calories : "+getCalories()+" Duration(minutes) : "+getDuration();
+            return str;
+        }
 
 
 }

@@ -8,8 +8,8 @@ public class CafeteriaForLaunchMOUNTAINVIEW implements CafeteriaForLaunchI {
 	@Override
 	public void calculateCost() {
 		double surchargeCost=0;
-		surchargeCost=12*0.05;
-		setCostOflaunch(12+surchargeCost);		
+		surchargeCost=17*0.05;
+		setCostOflaunch(17+surchargeCost);		
 	}
 
 	@Override
@@ -79,6 +79,10 @@ public class CafeteriaForLaunchMOUNTAINVIEW implements CafeteriaForLaunchI {
 		this.caloriesBurnt = caloriesBurnt;
 	}
 
-
+        @Override
+        public String toString(){
+            String str = "Cost : $" +getCost()+" Co2 : "+ getCO2Generated() +" Calories : "+getCalories()+" Duration(minutes) : "+getDuration();
+            return str;
+        }
 
 }

@@ -7,7 +7,7 @@ public class LectureForOrientationCS541 implements LectureForOrientationI {
 	private int caloriesBurnt;
 	@Override
 	public void calculateCost() {
-		double surchargeCost=0;
+		double surchargeCost=0.0;
 		surchargeCost=9*0.10;
 		setCostOfAttendingALecture(9+surchargeCost);
 		
@@ -70,5 +70,11 @@ public class LectureForOrientationCS541 implements LectureForOrientationI {
 	public void setDurationOfAttendingALecture(int durationOfAttendingALecture) {
 		this.durationOfAttendingALecture = durationOfAttendingALecture;
 	}
+        
+        @Override
+        public String toString(){
+            String str = "Cost : $" +getCost()+" Co2 : "+ getCO2Generated() +" Calories : "+getCalories()+" Duration(minutes) : "+getDuration();
+            return str;
+        }
 
 }

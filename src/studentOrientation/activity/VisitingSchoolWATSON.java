@@ -5,7 +5,8 @@ import studentOrientation.enums.SchoolBuildingVisitRideModeEnum;
 public class VisitingSchoolWATSON implements VisitingSchoolBuildingI{
 
 	public VisitingSchoolWATSON(SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideModeIn) {
-		setSchoolBuildingVisitRideMode(schoolBuildingVisitRideModeIn);
+		//setSchoolBuildingVisitRideMode(schoolBuildingVisitRideModeIn);
+                schoolBuildingVisitRideModeEnum = schoolBuildingVisitRideModeIn;
 	}
 	private SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideModeEnum;
 	private double costOfRide;

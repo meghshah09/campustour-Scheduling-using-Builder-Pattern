@@ -7,13 +7,13 @@ public class CafeteriaForLaunchHINMANN implements CafeteriaForLaunchI {
 	private int caloriesBurnt;
 	@Override
 	public void calculateCost() {
-		setCostOflaunch(12);
+		setCostOflaunch(13);
 		
 	}
 
 	@Override
 	public void calculateCalories() {
-		setCaloriesBurnt(-20);
+		setCaloriesBurnt(-40);
 		
 	}
 
@@ -25,7 +25,7 @@ public class CafeteriaForLaunchHINMANN implements CafeteriaForLaunchI {
 
 	@Override
 	public void calculateDuration() {
-		setDurationOfLaunch(30);
+		setDurationOfLaunch(35);
 		
 	}
 
@@ -82,5 +82,9 @@ public class CafeteriaForLaunchHINMANN implements CafeteriaForLaunchI {
 	}
 
 
-
+        @Override
+        public String toString(){
+            String str = "Cost : $" +getCost()+" Co2 : "+ getCO2Generated() +" Calories : "+getCalories()+" Duration(minutes) : "+getDuration();
+            return str;
+        }
 }

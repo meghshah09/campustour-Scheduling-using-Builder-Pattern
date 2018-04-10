@@ -13,7 +13,7 @@ public class CafeteriaForLaunchC4 implements CafeteriaForLaunchI {
 	@Override
 	public void calculateCalories() {
 
-		setCaloriesBurnt(-20);
+		setCaloriesBurnt(-30);
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class CafeteriaForLaunchC4 implements CafeteriaForLaunchI {
 	@Override
 	public void calculateDuration() {
 
-		setDurationOfLaunch(30);
+		setDurationOfLaunch(20);
 		
 	}
 
@@ -88,5 +88,9 @@ public class CafeteriaForLaunchC4 implements CafeteriaForLaunchI {
 		this.caloriesBurnt = caloriesBurnt;
 	}
 
-
+        @Override
+        public String toString(){
+            String str = "Cost : $" +getCost()+" Co2 : "+ getCO2Generated() +" Calories : "+getCalories()+" Duration(minutes) : "+getDuration();
+            return str;
+        }
 }

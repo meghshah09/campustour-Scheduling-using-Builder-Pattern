@@ -7,7 +7,7 @@ package studentOrientation.activity;
 
 /**
  *
- * @author Megh Shah
+ * @author Megh Shah and Shashwat Maru
  */
 public class PickingGiftWESTGYM implements PickingGiftI {
 	private double costOfGift;
@@ -94,5 +94,11 @@ public class PickingGiftWESTGYM implements PickingGiftI {
 	public void setDurationOfPickingAGift(int durationOfPickingAGift) {
 		this.durationOfPickingAGift = durationOfPickingAGift;
 	}
+        
+        @Override
+        public String toString(){
+            String str = "Cost : $" +getCost()+" Co2 : "+ getCO2Generated() +" Calories : "+getCalories()+" Duration(minutes) : "+getDuration();
+            return str;
+        }
     
 }

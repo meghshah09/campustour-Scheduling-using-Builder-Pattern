@@ -67,10 +67,11 @@ public class StudentOrientation implements StudentOrientationI {
          */
 	@Override
 	public double getTotalCost() {
-		double cost=0;
+		double cost=0.0;
 		for(ActivityI activity: listOfActivities) {
 			cost += activity.getCost();
 		}
+                
 		return cost;
 	}
         
@@ -127,7 +128,7 @@ public class StudentOrientation implements StudentOrientationI {
                         +", Gift Picked from "+getGiftToPick()+", Launch Done @ "+getCafeteriaToLaunch()+", Lecture attended is "+getLectureToAttend()+".\n";
 		str += "\n";
 		str += "=====================================================Total efforts associated while doing above activities=====================================================\n";
-                       str += "   Total Duration:" +getTotalDuration() +" minutes, \n";
+                       str += "   Total Duration:" + getTotalDuration() +" minutes, \n";
                 str += "   total Cost: $" +getTotalCost() + ", \n";
 		str += "   total Calories Burnt :" +getTotalCalories()+ " calories, \n";
 		str += "   and total Carboon foot print :" +getTotalCarboonFootPrint() + " tonnes of CO2.\n";
@@ -240,13 +241,13 @@ public class StudentOrientation implements StudentOrientationI {
 	public void buildAttendingLecture() {
 		switch(getLectureToAttend()) {
 		case CS542: 
-			lectureForOrientation = new LectureForOrientationCS542();
+			lectureForOrientation = new LectureForOrientationCS542(); //Surchage for this class
 			break;
 		case CS540:
-			lectureForOrientation = new LectureForOrientationCS540();
+			lectureForOrientation = new LectureForOrientationCS540(); //surchage for this class
 			break;
 		case CS541:
-			lectureForOrientation = new LectureForOrientationCS541();
+			lectureForOrientation = new LectureForOrientationCS541(); //surchage for this class
 			break;
 		case CS543:
 			lectureForOrientation = new LectureForOrientationCS543();
@@ -278,6 +279,7 @@ public class StudentOrientation implements StudentOrientationI {
 			break;
 		case MARKETPLACE: 
 			cafeteria = new CafeteriaForLaunchMARKETPLACE();
+                        
 			break;
 		case HINMANN: 
 			cafeteria = new CafeteriaForLaunchHINMANN();
@@ -295,7 +297,8 @@ public class StudentOrientation implements StudentOrientationI {
 		cafeteria.calculateCalories();
 		cafeteria.calculateCo2Generated();
 		cafeteria.calculateDuration();
-		addActivityToList(cafeteria);
+		//System.out.println(cafeteria.toString());
+                addActivityToList(cafeteria);
 	}
 
         /**
@@ -406,5 +409,12 @@ public class StudentOrientation implements StudentOrientationI {
          */
 	public void setSchoolBuildingVisitRideMode2(SchoolBuildingVisitRideModeEnum schoolBuildingVisitRideMode2) {
 		this.schoolBuildingVisitRideMode2 = schoolBuildingVisitRideMode2;
-	}	
+	}
+        
+        
+        @Override
+        public String toString(){
+            String str = "List of Activities selected are : "+ this.listOfActivities;
+            return str;
+        }
 }

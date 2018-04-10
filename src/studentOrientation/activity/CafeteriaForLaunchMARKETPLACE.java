@@ -5,11 +5,16 @@ public class CafeteriaForLaunchMARKETPLACE implements CafeteriaForLaunchI {
 	private int durationOfLaunch;
 	private double carboonFootPrint;
 	private int caloriesBurnt;
+
+        public CafeteriaForLaunchMARKETPLACE() {
+        
+        }
+        
 	@Override
 	public void calculateCost() {
 		double surchargeCost=0;
-		surchargeCost=12*0.06;
-		setCostOflaunch(12+surchargeCost);
+		surchargeCost=20*0.06;
+		setCostOflaunch(20+surchargeCost);
 		
 	}
 
@@ -93,6 +98,10 @@ public class CafeteriaForLaunchMARKETPLACE implements CafeteriaForLaunchI {
 		this.caloriesBurnt = caloriesBurnt;
 	}
 
-
+        @Override
+        public String toString(){
+            String str = "Cost : $" +getCost()+" Co2 : "+ getCO2Generated() +" Calories : "+getCalories()+" Duration(minutes) : "+getDuration();
+            return str;
+        }
 
 }
