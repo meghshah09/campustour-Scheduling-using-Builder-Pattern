@@ -219,6 +219,9 @@ public class StudentOrientation implements StudentOrientationI {
 		case UNIVERSITYUNION:
 			pickingGift = new PickingGiftUNIVERSITYUNION();
 			break;
+                case WESTGYM:
+			pickingGift = new PickingGiftWESTGYM();
+			break;
 		default:
 			break;
 		}

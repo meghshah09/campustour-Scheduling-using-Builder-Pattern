@@ -7,8 +7,9 @@ public class LectureForOrientationCS542 implements LectureForOrientationI {
 	private int caloriesBurnt;
 	@Override
 	public void calculateCost() {
-		double surchargeCost=0;
-		surchargeCost=18*0.10;
+		
+		double surchargeCost;
+                surchargeCost = 18*0.10;
 		setCostOfAttendingALecture(18+surchargeCost);
 		
 	}

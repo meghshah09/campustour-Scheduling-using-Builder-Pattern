@@ -8,7 +8,7 @@ public class CafeteriaForLaunchMOUNTAINVIEW implements CafeteriaForLaunchI {
 	@Override
 	public void calculateCost() {
 		double surchargeCost=0;
-		surchargeCost=12*0.06;
+		surchargeCost=12*0.05;
 		setCostOflaunch(12+surchargeCost);		
 	}
 
