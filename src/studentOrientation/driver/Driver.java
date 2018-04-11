@@ -22,8 +22,8 @@ public class Driver {
      */
 	public static void main(String[] args) {
 			
-		StudentOrientation studentOrientation = new StudentOrientation(CafeteriaEnum.MARKETPLACE,GiftEnum.WESTGYM,LectureEnum.CS541,SchoolBuildingEnum.BUCS,
-				SchoolBuildingEnum.CCPA, SchoolBuildingVisitRideModeEnum.BUSMODE, SchoolBuildingVisitRideModeEnum.ONFOOT);
+		StudentOrientation studentOrientation = new StudentOrientation(CafeteriaEnum.MARKETPLACE,GiftEnum.WESTGYM,LectureEnum.CS542,SchoolBuildingEnum.WATSON,
+				SchoolBuildingEnum.CCPA, SchoolBuildingVisitRideModeEnum.BUSMODE, SchoolBuildingVisitRideModeEnum.BUSMODE);
 		StudentOrientationBuilder studentOrientationBuilder = new StudentOrientationBuilder();
 		studentOrientationBuilder.buildStudentOrientation(studentOrientation);
                 Results result = new Results();

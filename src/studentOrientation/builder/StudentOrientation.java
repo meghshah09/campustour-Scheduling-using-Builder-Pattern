@@ -125,7 +125,7 @@ public class StudentOrientation implements StudentOrientationI {
 		String str = "==================================================Below is the Student Orientation Plan for given preferences=====================================================\n";
 		str = str + "\n";
 		str += "Building 1 Visited: "+getBuildingToVisit1()+ " ,Building 2 Visited: "+getBuildingToVisit2()
-                        +", Gift Picked from "+getGiftToPick()+", Launch Done @ "+getCafeteriaToLaunch()+", Lecture attended is "+getLectureToAttend()+".\n";
+                        +", Gift Picked from "+getGiftToPick()+", Lunch Done @ "+getCafeteriaToLaunch()+", Lecture attended is "+getLectureToAttend()+".\n";
 		str += "\n";
 		str += "=====================================================Total efforts associated while doing above activities=====================================================\n";
                        str += "   Total Duration:" + getTotalDuration() +" minutes, \n";
